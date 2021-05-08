@@ -1,0 +1,88 @@
+# scaling-octo-chainsaw
+#include<iostream>
+using namespace std;
+
+class ytchannel{
+	private:                                  //ENCAPSULATION=(WE HAVE TO MAKE CLASS MEMBERS PRIVATE AND THEN ACCESS THEM OUTSIDE THE CLASS)***
+	string channelname;
+
+	int subscribers;
+	
+	protected:
+		string myname;                            //PUBLIC,PRIVATE AND PROTECTED***
+		
+	public:
+	
+	ytchannel(string name, string MYNAME){                             //constructor***
+		channelname=name;
+		myname=MYNAME;
+		subscribers=0;
+		
+		
+	}
+	void getinfo(){                                                           //METHOD SO THAT WE DO NOT WANT TO COUT AGAIN AND AGAIN***
+		
+	cout<<"NAME: "<< channelname<<endl;
+	cout<<"MY NAME: "<< myname<<endl;
+	cout<<"subscribers count: "<< subscribers<<endl;
+	}
+	void SUBSCIBE(){                                                       //different methods for different purposes
+		subscribers++;
+	}
+	void UNSUBSCIBE(){
+		if(subscribers>0){
+		
+		subscribers--;}
+	}
+		void getname(string cname){
+		
+			channelname=cname;
+		}
+	};
+class another:public ytchannel{                                                // INHERITANCE***
+	public:
+	another(string Name,string myname):ytchannel(Name,myname){          //UNDERSTANDING THE CONCEPT***
+			
+	}
+	
+	void test(){
+		cout<<"Thank you "<< myname<<endl;                               //USE OF PROTECTED***
+	}
+};
+	
+	
+
+
+int main(){
+	ytchannel youtube("clash royale","LOVESH SHARMA");
+	ytchannel youtube2("clash of clans","LOVESH SHARMA");
+	
+	another ytube("lovesh channel","lovesh");
+	ytube.getinfo();
+	ytube.test();                                                        //CALLING OF PROTECTED**
+
+
+//	youtube.channelname="clash royale";                                     //call class using object***
+//	youtube.myname="LOVESH SHARMA";
+
+	youtube.SUBSCIBE();
+	youtube.SUBSCIBE();
+	youtube2.UNSUBSCIBE();
+	youtube.getname("LOVELY");
+    
+    
+     youtube.getinfo();
+     youtube2.getinfo();
+    
+/*	cout<<"NAME: "<< youtube.channelname<<endl;                              //printing all of channel 1 and 2***
+	cout<<"MY NAME: "<< youtube.myname<<endl;
+	cout<<"subscribers count: "<< youtube.subscribers<<endl;
+	
+	cout<<"NAME: "<< youtube2.channelname<<endl;
+	cout<<"MY NAME: "<< youtube2.myname<<endl;
+	cout<<"subscribers count: "<< youtube2.subscribers<<endl;*/
+	
+	system("pause>0");
+	
+	
+}
