@@ -1,0 +1,70 @@
+#include<iostream>
+using namespace std;
+void showmenu(){
+	cout<<"*****MENU*****"<<endl;
+	cout<<"1. CHECK BALANCE "<<endl;
+	cout<<"2. DEPOSIT MONEY "<<endl;
+	cout<<"3. WITHDRAW MONEY "<<endl;
+	cout<<"4. TRANSFER MONEY "<<endl;
+	cout<<"5. EXIT "<<endl;
+		cout<<"**************"<<endl;
+}
+
+int transfer(int balance){double amount;
+    double long guestaccount,useraccount;
+    cout<<"account number in which you want to transfer your money"<<endl;
+    cin>>guestaccount;
+    cout<<"your account number"<<endl;
+    cin>>useraccount;
+	cout<<"how much money do you want to transfer"<<endl;
+	cin>>amount;
+	if(amount<=balance){
+	
+	cout<<amount << " is successfully transferd from your balance"<<endl;
+	return balance-=amount;
+	
+		}
+	else {
+		cout<<"not enough money"<<endl;
+	}
+ 
+}
+int main(){
+	int option;
+	long balance=10000;
+	do{
+	
+	showmenu();
+	cout<<"OPTION " ;
+	cin>>option;
+
+	system("cls");
+	
+	
+	
+	switch(option){
+		case 1: cout<< "BALANCE IS " << balance << " rupees"<<endl;break;
+		case 2: cout<< "DEPOSIT AMOUNT"<<endl;
+		        long depositamount;
+		        cin>>depositamount;
+		        balance+=depositamount;
+		        break;
+	    case 3: cout<< "WITHDRAW AMOUNT"<<endl;
+		        long withdrawamount;
+		        cin>>withdrawamount;
+		        if(withdrawamount<=balance){
+				
+		        balance-=withdrawamount;
+		         }    
+				 else{
+				 	cout<<"NOT ENOUGH MONEY"<<endl;
+				 }   break;
+		case 4: balance=transfer(balance); break;
+	}
+}while(option<5);
+	if(option>5){
+		cout<<"ERROR	";
+	}
+	
+	system("pause>0");
+}
